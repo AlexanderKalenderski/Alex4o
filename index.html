@@ -5,21 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Alex | Universal Roblox Scripter</title>
-  <meta name="description" content="Universal Roblox scripter portfolio with UI systems, gameplay mechanics, round systems, DataStores, effects, and commission work." />
 
   <style>
     :root {
-      --bg: #06070b;
-      --bg2: #0b0d14;
-      --panel: rgba(18, 21, 33, 0.82);
-      --panel2: rgba(26, 30, 45, 0.88);
+      --bg: #05060a;
+      --panel: rgba(18, 20, 32, 0.88);
+      --panel2: rgba(255, 255, 255, 0.06);
       --text: #ffffff;
       --muted: #b8bfcc;
       --red: #ff315c;
       --red2: #ff6b86;
-      --whiteGlow: rgba(255, 255, 255, 0.18);
-      --redGlow: rgba(255, 49, 92, 0.36);
-      --border: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, 0.12);
+      --glow: rgba(255, 49, 92, 0.38);
     }
 
     * {
@@ -44,21 +41,20 @@
       content: "";
       position: fixed;
       inset: 0;
-      pointer-events: none;
       z-index: -3;
       background:
-        radial-gradient(circle at 15% 10%, rgba(255, 49, 92, 0.23), transparent 30%),
-        radial-gradient(circle at 85% 25%, rgba(255, 255, 255, 0.08), transparent 28%),
-        radial-gradient(circle at 50% 90%, rgba(255, 49, 92, 0.12), transparent 35%),
-        linear-gradient(135deg, #05060a, #10131d 45%, #07080d);
+        radial-gradient(circle at 20% 10%, rgba(255, 49, 92, 0.28), transparent 30%),
+        radial-gradient(circle at 90% 30%, rgba(255, 255, 255, 0.08), transparent 28%),
+        radial-gradient(circle at 50% 95%, rgba(255, 49, 92, 0.16), transparent 35%),
+        linear-gradient(135deg, #05060a, #10131e 45%, #07080d);
     }
 
     body::after {
       content: "";
       position: fixed;
       inset: 0;
-      pointer-events: none;
       z-index: -2;
+      pointer-events: none;
       opacity: 0.12;
       background-image:
         linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
@@ -71,75 +67,55 @@
       color: inherit;
     }
 
-    .page-glow {
-      position: fixed;
-      width: 420px;
-      height: 420px;
-      border-radius: 999px;
-      background: rgba(255, 49, 92, 0.14);
-      filter: blur(70px);
-      top: 10%;
-      right: -140px;
-      z-index: -1;
-      animation: floatGlow 7s ease-in-out infinite alternate;
-    }
-
-    @keyframes floatGlow {
-      from { transform: translateY(-20px) scale(1); }
-      to { transform: translateY(35px) scale(1.12); }
-    }
-
     .nav {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
       z-index: 50;
       padding: 18px 7%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(6, 7, 11, 0.72);
+      background: rgba(5, 6, 10, 0.78);
       backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .logo {
       font-weight: 900;
-      letter-spacing: 0.5px;
       font-size: 20px;
+      letter-spacing: 0.4px;
     }
 
     .logo span {
       color: var(--red);
-      text-shadow: 0 0 20px var(--redGlow);
+      text-shadow: 0 0 18px var(--glow);
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
-      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
     }
 
     .nav-links a {
-      text-decoration: none;
       color: var(--muted);
+      text-decoration: none;
       font-size: 14px;
-      font-weight: 700;
-      transition: 0.2s ease;
+      font-weight: 800;
+      transition: 0.2s;
     }
 
     .nav-links a:hover {
       color: white;
-      text-shadow: 0 0 14px var(--whiteGlow);
+      text-shadow: 0 0 14px rgba(255,255,255,0.25);
     }
 
     .hero {
-      min-height: 100vh;
-      padding: 120px 7% 70px;
+      min-height: 92vh;
+      padding: 90px 7% 70px;
       display: grid;
       grid-template-columns: 1.02fr 0.98fr;
-      gap: 40px;
+      gap: 42px;
       align-items: center;
     }
 
@@ -149,14 +125,13 @@
       gap: 10px;
       padding: 9px 13px;
       border-radius: 999px;
-      color: white;
       background: rgba(255, 49, 92, 0.12);
-      border: 1px solid rgba(255, 49, 92, 0.32);
-      box-shadow: 0 0 24px rgba(255, 49, 92, 0.14);
+      border: 1px solid rgba(255, 49, 92, 0.34);
+      color: white;
       font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
+      font-weight: 900;
       text-transform: uppercase;
+      letter-spacing: 0.6px;
       margin-bottom: 20px;
     }
 
@@ -166,34 +141,33 @@
       border-radius: 50%;
       background: var(--red);
       box-shadow: 0 0 18px var(--red);
-      animation: pulse 1.3s infinite;
+      animation: pulse 1.25s infinite;
     }
 
     @keyframes pulse {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.45); opacity: 0.55; }
+      50% { transform: scale(1.5); opacity: 0.55; }
     }
 
     h1 {
-      font-size: clamp(44px, 7vw, 86px);
+      font-size: clamp(42px, 7vw, 86px);
       line-height: 0.96;
       letter-spacing: -3px;
-      max-width: 850px;
       margin-bottom: 24px;
-      text-shadow: 0 0 28px rgba(255, 49, 92, 0.18);
+      text-shadow: 0 0 30px rgba(255, 49, 92, 0.17);
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, #ffffff, #ff8aa0 45%, #ff315c 78%, #ffffff);
+      background: linear-gradient(90deg, #ffffff, #ff8aa0 42%, #ff315c 76%, #ffffff);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero-text {
+      max-width: 730px;
       color: var(--muted);
       font-size: 19px;
-      max-width: 720px;
       margin-bottom: 28px;
     }
 
@@ -201,32 +175,31 @@
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 34px;
+      margin-bottom: 32px;
     }
 
     .btn {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
+      align-items: center;
+      padding: 14px 21px;
       border-radius: 14px;
       text-decoration: none;
       font-weight: 900;
+      cursor: pointer;
       border: 1px solid transparent;
       transition: 0.2s ease;
-      cursor: pointer;
     }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--red), #b7153d);
       color: white;
-      box-shadow: 0 0 30px rgba(255, 49, 92, 0.36);
+      box-shadow: 0 0 32px rgba(255, 49, 92, 0.36);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 0 46px rgba(255, 49, 92, 0.52);
+      box-shadow: 0 0 48px rgba(255, 49, 92, 0.52);
     }
 
     .btn-ghost {
@@ -237,27 +210,26 @@
 
     .btn-ghost:hover {
       transform: translateY(-3px);
-      border-color: rgba(255, 49, 92, 0.48);
-      background: rgba(255, 49, 92, 0.1);
+      border-color: rgba(255,49,92,0.45);
+      background: rgba(255,49,92,0.1);
     }
 
     .stats {
       display: grid;
-      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      grid-template-columns: repeat(3, minmax(110px, 1fr));
       gap: 12px;
-      max-width: 650px;
+      max-width: 660px;
     }
 
     .stat {
-      padding: 15px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.05);
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.055);
       border: 1px solid rgba(255,255,255,0.1);
     }
 
     .stat strong {
       display: block;
-      color: white;
       font-size: 24px;
       line-height: 1;
     }
@@ -274,14 +246,14 @@
 
     .hero-card {
       position: absolute;
-      inset: 30px 0 0 40px;
+      inset: 25px 0 0 35px;
       border-radius: 28px;
       overflow: hidden;
       border: 1px solid rgba(255,255,255,0.16);
-      background: var(--panel);
+      background: #111;
       box-shadow:
         0 24px 80px rgba(0,0,0,0.55),
-        0 0 70px rgba(255, 49, 92, 0.16);
+        0 0 80px rgba(255,49,92,0.16);
       transform: rotate(2deg);
     }
 
@@ -298,19 +270,19 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top, rgba(6,7,11,0.82), transparent 52%),
+        linear-gradient(to top, rgba(5,6,10,0.82), transparent 52%),
         radial-gradient(circle at 15% 10%, rgba(255,49,92,0.28), transparent 32%);
     }
 
     .floating-proof {
       position: absolute;
       left: 0;
-      bottom: 35px;
+      bottom: 32px;
       width: 58%;
       border-radius: 22px;
       overflow: hidden;
-      background: rgba(10, 12, 20, 0.86);
       border: 1px solid rgba(255,255,255,0.16);
+      background: #111;
       box-shadow: 0 24px 60px rgba(0,0,0,0.5);
       transform: rotate(-3deg);
     }
@@ -322,33 +294,34 @@
 
     .floating-label {
       position: absolute;
-      right: 18px;
-      bottom: 18px;
-      background: rgba(0,0,0,0.6);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.14);
+      right: 14px;
+      bottom: 14px;
+      z-index: 2;
       border-radius: 999px;
-      padding: 9px 12px;
+      padding: 8px 11px;
+      background: rgba(0,0,0,0.62);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.14);
       font-size: 12px;
       font-weight: 900;
     }
 
     .section {
-      padding: 90px 7%;
+      padding: 88px 7%;
     }
 
     .section-head {
       display: flex;
       justify-content: space-between;
-      gap: 24px;
       align-items: end;
+      gap: 24px;
       margin-bottom: 34px;
     }
 
     .eyebrow {
       color: var(--red2);
       text-transform: uppercase;
-      letter-spacing: 1.4px;
+      letter-spacing: 1.5px;
       font-size: 12px;
       font-weight: 900;
       margin-bottom: 9px;
@@ -357,90 +330,111 @@
     h2 {
       font-size: clamp(32px, 4vw, 54px);
       line-height: 1.05;
-      letter-spacing: -1.4px;
+      letter-spacing: -1.3px;
     }
 
     .section-desc {
       color: var(--muted);
-      max-width: 600px;
+      max-width: 620px;
       font-size: 16px;
     }
 
-    .skills-grid {
+    .skills-grid,
+    .featured-grid,
+    .gallery-grid,
+    .prices,
+    .process {
       display: grid;
+      gap: 16px;
+    }
+
+    .skills-grid {
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+    }
+
+    .featured-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .prices,
+    .process {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .skill-card,
+    .project-card,
+    .price,
+    .step,
+    .video-main,
+    .video-side,
+    .contact-box {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 55px rgba(0,0,0,0.34);
     }
 
     .skill-card {
       position: relative;
+      min-height: 148px;
       padding: 22px;
-      min-height: 142px;
       border-radius: 22px;
       overflow: hidden;
-      background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 16px 45px rgba(0,0,0,0.28);
       transition: 0.22s ease;
     }
 
-    .skill-card:hover {
+    .skill-card:hover,
+    .project-card:hover,
+    .gallery-item:hover,
+    .price:hover,
+    .step:hover {
       transform: translateY(-6px);
-      border-color: rgba(255, 49, 92, 0.45);
-      box-shadow: 0 22px 60px rgba(0,0,0,0.36), 0 0 35px rgba(255,49,92,0.11);
+      border-color: rgba(255,49,92,0.45);
+      box-shadow: 0 26px 72px rgba(0,0,0,0.45), 0 0 34px rgba(255,49,92,0.11);
     }
 
     .skill-card::before {
       content: "";
       position: absolute;
-      width: 90px;
-      height: 90px;
+      width: 95px;
+      height: 95px;
+      right: -32px;
+      top: -32px;
       border-radius: 50%;
-      right: -25px;
-      top: -25px;
       background: rgba(255,49,92,0.13);
-      filter: blur(5px);
+      filter: blur(4px);
     }
 
-    .skill-card .icon {
+    .icon {
       font-size: 28px;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
-    .skill-card h3 {
-      font-size: 18px;
+    .skill-card h3,
+    .step h3,
+    .price h3 {
       margin-bottom: 8px;
     }
 
-    .skill-card p {
+    .skill-card p,
+    .step p,
+    .price p {
       color: var(--muted);
       font-size: 14px;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
     }
 
     .project-card {
       border-radius: 24px;
       overflow: hidden;
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.11);
-      box-shadow: 0 18px 55px rgba(0,0,0,0.35);
       transition: 0.22s ease;
     }
 
-    .project-card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(255, 49, 92, 0.42);
-      box-shadow: 0 26px 75px rgba(0,0,0,0.45), 0 0 35px rgba(255,49,92,0.12);
-    }
-
     .project-img {
-      height: 210px;
       position: relative;
+      height: 210px;
       overflow: hidden;
       background: #111;
     }
@@ -454,14 +448,14 @@
     }
 
     .project-card:hover .project-img img {
-      transform: scale(1.05);
+      transform: scale(1.06);
     }
 
     .project-img::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+      background: linear-gradient(to top, rgba(0,0,0,0.66), transparent);
     }
 
     .project-tag {
@@ -474,7 +468,6 @@
       font-size: 12px;
       font-weight: 900;
       background: rgba(255,49,92,0.88);
-      color: white;
       box-shadow: 0 0 20px rgba(255,49,92,0.35);
     }
 
@@ -514,18 +507,16 @@
       gap: 18px;
     }
 
-    .video-main, .video-side {
+    .video-main,
+    .video-side {
       border-radius: 26px;
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.11);
       overflow: hidden;
-      box-shadow: 0 24px 70px rgba(0,0,0,0.42);
     }
 
-    .video-main video {
+    video {
       width: 100%;
       display: block;
-      background: #000;
+      background: black;
     }
 
     .video-content {
@@ -533,17 +524,12 @@
     }
 
     .video-content h3 {
-      margin-bottom: 8px;
       font-size: 22px;
+      margin-bottom: 8px;
     }
 
     .video-content p {
       color: var(--muted);
-    }
-
-    .video-side {
-      display: grid;
-      gap: 0;
     }
 
     .small-video {
@@ -556,10 +542,7 @@
     }
 
     .small-video video {
-      width: 100%;
       border-radius: 16px;
-      display: block;
-      background: #000;
       margin-bottom: 10px;
     }
 
@@ -573,27 +556,24 @@
       font-size: 13px;
     }
 
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+    .video-missing {
+      padding: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      background: rgba(255,255,255,0.05);
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .gallery-item {
       position: relative;
+      min-height: 190px;
       border-radius: 20px;
       overflow: hidden;
-      min-height: 190px;
       cursor: pointer;
-      border: 1px solid rgba(255,255,255,0.11);
+      border: 1px solid var(--border);
       background: #111;
+      transition: 0.22s ease;
       box-shadow: 0 16px 44px rgba(0,0,0,0.28);
-      transition: 0.2s ease;
-    }
-
-    .gallery-item:hover {
-      transform: translateY(-5px);
-      border-color: rgba(255, 49, 92, 0.45);
     }
 
     .gallery-item img {
@@ -613,31 +593,25 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent 62%);
+      background: linear-gradient(to top, rgba(0,0,0,0.76), transparent 62%);
     }
 
     .gallery-label {
       position: absolute;
-      left: 13px;
-      bottom: 12px;
-      right: 13px;
       z-index: 2;
+      left: 13px;
+      right: 13px;
+      bottom: 12px;
       font-size: 13px;
       font-weight: 900;
       text-shadow: 0 2px 8px black;
     }
 
-    .process {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .step {
-      padding: 22px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
+    .step,
+    .price {
+      padding: 24px;
+      border-radius: 24px;
+      transition: 0.22s ease;
     }
 
     .step-number {
@@ -652,27 +626,9 @@
       margin-bottom: 15px;
     }
 
-    .step h3 {
-      margin-bottom: 8px;
-      font-size: 17px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .prices {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-    }
-
-    .price {
-      padding: 24px;
-      border-radius: 24px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.025));
-      border: 1px solid rgba(255,255,255,0.1);
+    .price strong {
+      color: var(--red2);
+      font-size: 24px;
     }
 
     .price.featured {
@@ -680,39 +636,18 @@
       box-shadow: 0 0 45px rgba(255,49,92,0.13);
     }
 
-    .price h3 {
-      margin-bottom: 8px;
-    }
-
-    .price strong {
-      font-size: 24px;
-      color: var(--red2);
-    }
-
-    .price p {
-      color: var(--muted);
-      margin-top: 10px;
-      font-size: 14px;
-    }
-
     .contact-box {
       position: relative;
       overflow: hidden;
       padding: 44px;
       border-radius: 30px;
-      background:
-        radial-gradient(circle at top left, rgba(255,49,92,0.22), transparent 30%),
-        linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.13);
-      box-shadow: 0 24px 80px rgba(0,0,0,0.44);
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 30px;
       align-items: center;
-    }
-
-    .contact-box h2 {
-      margin-bottom: 14px;
+      background:
+        radial-gradient(circle at top left, rgba(255,49,92,0.22), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
     }
 
     .contact-box p {
@@ -724,8 +659,7 @@
       margin-top: 22px;
       display: grid;
       gap: 8px;
-      color: #e8e8e8;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .copy-msg {
@@ -752,7 +686,7 @@
       align-items: center;
       justify-content: center;
       padding: 30px;
-      background: rgba(0,0,0,0.82);
+      background: rgba(0,0,0,0.84);
       backdrop-filter: blur(8px);
     }
 
@@ -813,7 +747,9 @@
     }
 
     @media (max-width: 1050px) {
-      .hero {
+      .hero,
+      .video-grid,
+      .contact-box {
         grid-template-columns: 1fr;
       }
 
@@ -824,20 +760,14 @@
       .skills-grid,
       .featured-grid,
       .gallery-grid,
-      .process,
-      .prices {
+      .prices,
+      .process {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .video-grid,
-      .contact-box {
-        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 700px) {
       .nav {
-        position: static;
         flex-direction: column;
         gap: 14px;
       }
@@ -847,20 +777,20 @@
         gap: 13px;
       }
 
-      .hero {
-        padding-top: 55px;
+      h1 {
+        letter-spacing: -1.6px;
       }
 
-      h1 {
-        letter-spacing: -1.5px;
+      .hero {
+        padding-top: 60px;
       }
 
       .stats,
       .skills-grid,
       .featured-grid,
       .gallery-grid,
-      .process,
-      .prices {
+      .prices,
+      .process {
         grid-template-columns: 1fr;
       }
 
@@ -873,7 +803,7 @@
       }
 
       .floating-proof {
-        width: 72%;
+        width: 74%;
         bottom: 18px;
       }
 
@@ -894,8 +824,6 @@
 </head>
 
 <body>
-  <div class="page-glow"></div>
-
   <nav class="nav">
     <div class="logo">Alex<span>Scripts</span></div>
 
@@ -909,7 +837,7 @@
   </nav>
 
   <header class="hero">
-    <div class="hero-left reveal">
+    <div class="reveal">
       <div class="badge"><span class="dot"></span> Universal Roblox Scripter</div>
 
       <h1>
@@ -944,11 +872,11 @@
 
     <div class="hero-media reveal">
       <div class="hero-card">
-        <img src="portfolio_assets/screenshots/07_statistics_profile_ui.jpg" alt="Roblox profile and statistics UI system proof">
+        <img src="07_statistics_profile_ui.jpg" alt="Roblox statistics and profile UI system">
       </div>
 
       <div class="floating-proof">
-        <img src="portfolio_assets/screenshots/09_code_proof_large_script.jpg" alt="Roblox Lua code proof">
+        <img src="09_code_proof_large_script.jpg" alt="Large Roblox Lua code proof">
         <div class="floating-label">Real Lua system code</div>
       </div>
     </div>
@@ -960,6 +888,7 @@
         <div class="eyebrow">What I can make</div>
         <h2>Universal scripting services</h2>
       </div>
+
       <p class="section-desc">
         I am not only a combat scripter. I can work on many different Roblox systems,
         from menus and saving to gameplay logic and polished effects.
@@ -970,7 +899,7 @@
       <div class="skill-card reveal">
         <div class="icon">🧩</div>
         <h3>UI Systems</h3>
-        <p>Menus, settings, inventories, shops, profile pages, tutorials, buttons, hover effects.</p>
+        <p>Menus, settings, inventories, shops, profiles, tutorials, buttons, hover effects.</p>
       </div>
 
       <div class="skill-card reveal">
@@ -1023,20 +952,21 @@
         <div class="eyebrow">Evidence</div>
         <h2>Featured proof of work</h2>
       </div>
+
       <p class="section-desc">
-        Real screenshots from systems I built or worked on. Each card shows a different type of scripting work.
+        Real screenshots from different systems, showing that I can work on many types of Roblox scripting.
       </p>
     </div>
 
     <div class="featured-grid">
       <article class="project-card reveal">
         <div class="project-img">
-          <img src="portfolio_assets/screenshots/02_inventory_ui_system.jpg" alt="Inventory UI system">
+          <img src="02_inventory_ui_system.jpg" alt="Inventory UI system">
           <span class="project-tag">UI System</span>
         </div>
         <div class="project-body">
           <h3>Inventory & Interface Systems</h3>
-          <p>Custom UI screens with buttons, visual hierarchy, frames, item display, and clean player navigation.</p>
+          <p>Custom UI screens with buttons, item display, clean navigation, and organized layouts.</p>
           <div class="mini-list">
             <span>Inventory</span><span>Frames</span><span>Buttons</span><span>UX</span>
           </div>
@@ -1045,12 +975,12 @@
 
       <article class="project-card reveal">
         <div class="project-img">
-          <img src="portfolio_assets/screenshots/03_map_intro_mission_ui.jpg" alt="Mission and map intro UI">
+          <img src="03_map_intro_mission_ui.jpg" alt="Mission and map intro UI">
           <span class="project-tag">Game Flow</span>
         </div>
         <div class="project-body">
           <h3>Map Intro & Mission Flow</h3>
-          <p>Intro screens, mission text, role messaging, transition timing, and player guidance systems.</p>
+          <p>Intro screens, mission text, role messages, transition timing, and player guidance.</p>
           <div class="mini-list">
             <span>Mission UI</span><span>Transitions</span><span>Game Flow</span>
           </div>
@@ -1059,12 +989,12 @@
 
       <article class="project-card reveal">
         <div class="project-img">
-          <img src="portfolio_assets/screenshots/05_mobile_keybind_ability_ui.jpg" alt="Mobile and keybind ability UI">
+          <img src="05_mobile_keybind_ability_ui.jpg" alt="Mobile and keybind ability UI">
           <span class="project-tag">Controls</span>
         </div>
         <div class="project-body">
           <h3>PC & Mobile Ability Controls</h3>
-          <p>Abilities with cooldowns, mobile buttons, keybind support, anti-spam logic, and readable cooldown UI.</p>
+          <p>Abilities with cooldowns, mobile buttons, keyboard support, and readable cooldown feedback.</p>
           <div class="mini-list">
             <span>Mobile</span><span>Keybinds</span><span>Cooldowns</span>
           </div>
@@ -1073,12 +1003,12 @@
 
       <article class="project-card reveal">
         <div class="project-img">
-          <img src="portfolio_assets/screenshots/06_emergency_exit_event.jpg" alt="Emergency exit event system">
+          <img src="06_emergency_exit_event.jpg" alt="Emergency exit event system">
           <span class="project-tag">Event System</span>
         </div>
         <div class="project-body">
           <h3>Emergency Event System</h3>
-          <p>Special event logic with UI warnings, timed activation, player feedback, and intense game-state changes.</p>
+          <p>Special event logic with warnings, timed activation, player feedback, and game-state changes.</p>
           <div class="mini-list">
             <span>Events</span><span>Timers</span><span>Feedback</span>
           </div>
@@ -1087,12 +1017,12 @@
 
       <article class="project-card reveal">
         <div class="project-img">
-          <img src="portfolio_assets/screenshots/07_statistics_profile_ui.jpg" alt="Statistics and profile UI">
+          <img src="07_statistics_profile_ui.jpg" alt="Statistics and profile UI">
           <span class="project-tag">Profile System</span>
         </div>
         <div class="project-body">
           <h3>Statistics & Profile UI</h3>
-          <p>Player information screens, stats display, profile layouts, reward visuals, and organized data presentation.</p>
+          <p>Player information screens, profile layouts, stats display, and organized data presentation.</p>
           <div class="mini-list">
             <span>Stats</span><span>Profiles</span><span>Data Display</span>
           </div>
@@ -1101,12 +1031,12 @@
 
       <article class="project-card reveal">
         <div class="project-img">
-          <img src="portfolio_assets/screenshots/09_code_proof_large_script.jpg" alt="Large Roblox Lua script proof">
+          <img src="09_code_proof_large_script.jpg" alt="Large Roblox Lua script proof">
           <span class="project-tag">Code Proof</span>
         </div>
         <div class="project-body">
           <h3>Large Lua System Code</h3>
-          <p>Server-side scripting, modules, values, RemoteEvents, round states, class logic, and organized game systems.</p>
+          <p>Server-side scripting, modules, RemoteEvents, round states, class logic, and organized systems.</p>
           <div class="mini-list">
             <span>Lua</span><span>Server Logic</span><span>Modules</span>
           </div>
@@ -1121,41 +1051,45 @@
         <div class="eyebrow">Motion proof</div>
         <h2>Short system clips</h2>
       </div>
+
       <p class="section-desc">
-        Images are good, but videos prove that the systems actually run in-game.
+        This section will show videos too. If a video file is not uploaded yet, the image poster still proves the system.
       </p>
     </div>
 
     <div class="video-grid">
       <div class="video-main reveal">
-        <video src="portfolio_assets/clips/03_gameplay_ability_system.mp4" controls muted loop playsinline poster="portfolio_assets/screenshots/04_gameplay_ability_system.jpg"></video>
+        <video controls muted loop playsinline poster="04_gameplay_ability_system.jpg" data-video="03_gameplay_ability_system.mp4"></video>
         <div class="video-content">
           <h3>Gameplay Ability System</h3>
           <p>Proof of active gameplay logic, UI feedback, effects, and real in-game behavior.</p>
+        </div>
+        <div class="video-missing">
+          If the video does not appear, upload <strong>03_gameplay_ability_system.mp4</strong>.
         </div>
       </div>
 
       <div class="video-side reveal">
         <div class="small-video">
-          <video src="portfolio_assets/clips/01_loading_screen_system.mp4" controls muted loop playsinline poster="portfolio_assets/screenshots/01_loading_screen_system.jpg"></video>
+          <video controls muted loop playsinline poster="01_loading_screen_system.jpg" data-video="01_loading_screen_system.mp4"></video>
           <h4>Loading Screen System</h4>
           <p>Game start polish and first-impression UI.</p>
         </div>
 
         <div class="small-video">
-          <video src="portfolio_assets/clips/02_map_intro_mission_ui.mp4" controls muted loop playsinline poster="portfolio_assets/screenshots/03_map_intro_mission_ui.jpg"></video>
+          <video controls muted loop playsinline poster="03_map_intro_mission_ui.jpg" data-video="02_map_intro_mission_ui.mp4"></video>
           <h4>Mission / Intro UI</h4>
           <p>Role messaging, transitions, and player guidance.</p>
         </div>
 
         <div class="small-video">
-          <video src="portfolio_assets/clips/04_emergency_exit_event.mp4" controls muted loop playsinline poster="portfolio_assets/screenshots/06_emergency_exit_event.jpg"></video>
+          <video controls muted loop playsinline poster="06_emergency_exit_event.jpg" data-video="04_emergency_exit_event.mp4"></video>
           <h4>Emergency Exit Event</h4>
           <p>Timed event system with strong feedback.</p>
         </div>
 
         <div class="small-video">
-          <video src="portfolio_assets/clips/05_statistics_and_profile_ui.mp4" controls muted loop playsinline poster="portfolio_assets/screenshots/07_statistics_profile_ui.jpg"></video>
+          <video controls muted loop playsinline poster="07_statistics_profile_ui.jpg" data-video="05_statistics_and_profile_ui.mp4"></video>
           <h4>Profile / Statistics UI</h4>
           <p>Player data and profile interface proof.</p>
         </div>
@@ -1169,49 +1103,50 @@
         <div class="eyebrow">Gallery</div>
         <h2>More proof screenshots</h2>
       </div>
+
       <p class="section-desc">
-        Click any image to open it bigger. This section shows variety, not just one type of system.
+        Click any image to open it bigger. This section shows variety, not only one type of system.
       </p>
     </div>
 
     <div class="gallery-grid">
-      <div class="gallery-item reveal" data-title="Loading Screen System" data-src="portfolio_assets/screenshots/01_loading_screen_system.jpg">
-        <img src="portfolio_assets/screenshots/01_loading_screen_system.jpg" alt="Loading screen system">
+      <div class="gallery-item reveal" data-title="Loading Screen System" data-src="01_loading_screen_system.jpg">
+        <img src="01_loading_screen_system.jpg" alt="Loading screen system">
         <div class="gallery-label">Loading Screen System</div>
       </div>
 
-      <div class="gallery-item reveal" data-title="Inventory UI System" data-src="portfolio_assets/screenshots/02_inventory_ui_system.jpg">
-        <img src="portfolio_assets/screenshots/02_inventory_ui_system.jpg" alt="Inventory UI system">
+      <div class="gallery-item reveal" data-title="Inventory UI System" data-src="02_inventory_ui_system.jpg">
+        <img src="02_inventory_ui_system.jpg" alt="Inventory UI system">
         <div class="gallery-label">Inventory UI System</div>
       </div>
 
-      <div class="gallery-item reveal" data-title="Map Intro Mission UI" data-src="portfolio_assets/screenshots/03_map_intro_mission_ui.jpg">
-        <img src="portfolio_assets/screenshots/03_map_intro_mission_ui.jpg" alt="Map intro mission UI">
+      <div class="gallery-item reveal" data-title="Map Intro Mission UI" data-src="03_map_intro_mission_ui.jpg">
+        <img src="03_map_intro_mission_ui.jpg" alt="Map intro mission UI">
         <div class="gallery-label">Map Intro / Mission UI</div>
       </div>
 
-      <div class="gallery-item reveal" data-title="Gameplay Ability System" data-src="portfolio_assets/screenshots/04_gameplay_ability_system.jpg">
-        <img src="portfolio_assets/screenshots/04_gameplay_ability_system.jpg" alt="Gameplay ability system">
+      <div class="gallery-item reveal" data-title="Gameplay Ability System" data-src="04_gameplay_ability_system.jpg">
+        <img src="04_gameplay_ability_system.jpg" alt="Gameplay ability system">
         <div class="gallery-label">Gameplay Ability System</div>
       </div>
 
-      <div class="gallery-item reveal" data-title="Mobile and Keybind Ability UI" data-src="portfolio_assets/screenshots/05_mobile_keybind_ability_ui.jpg">
-        <img src="portfolio_assets/screenshots/05_mobile_keybind_ability_ui.jpg" alt="Mobile and keybind ability UI">
+      <div class="gallery-item reveal" data-title="Mobile and Keybind Ability UI" data-src="05_mobile_keybind_ability_ui.jpg">
+        <img src="05_mobile_keybind_ability_ui.jpg" alt="Mobile and keybind ability UI">
         <div class="gallery-label">Mobile / Keybind Support</div>
       </div>
 
-      <div class="gallery-item reveal" data-title="Emergency Exit Event" data-src="portfolio_assets/screenshots/06_emergency_exit_event.jpg">
-        <img src="portfolio_assets/screenshots/06_emergency_exit_event.jpg" alt="Emergency exit event">
+      <div class="gallery-item reveal" data-title="Emergency Exit Event" data-src="06_emergency_exit_event.jpg">
+        <img src="06_emergency_exit_event.jpg" alt="Emergency exit event">
         <div class="gallery-label">Emergency Event System</div>
       </div>
 
-      <div class="gallery-item reveal" data-title="Statistics and Profile UI" data-src="portfolio_assets/screenshots/07_statistics_profile_ui.jpg">
-        <img src="portfolio_assets/screenshots/07_statistics_profile_ui.jpg" alt="Statistics profile UI">
+      <div class="gallery-item reveal" data-title="Statistics and Profile UI" data-src="07_statistics_profile_ui.jpg">
+        <img src="07_statistics_profile_ui.jpg" alt="Statistics profile UI">
         <div class="gallery-label">Statistics / Profile UI</div>
       </div>
 
-      <div class="gallery-item reveal" data-title="Profile Backgrounds UI" data-src="portfolio_assets/screenshots/08_profile_backgrounds_ui.jpg">
-        <img src="portfolio_assets/screenshots/08_profile_backgrounds_ui.jpg" alt="Profile backgrounds UI">
+      <div class="gallery-item reveal" data-title="Profile Backgrounds UI" data-src="08_profile_backgrounds_ui.jpg">
+        <img src="08_profile_backgrounds_ui.jpg" alt="Profile backgrounds UI">
         <div class="gallery-label">Profile Background UI</div>
       </div>
     </div>
@@ -1223,6 +1158,7 @@
         <div class="eyebrow">How I work</div>
         <h2>Simple commission process</h2>
       </div>
+
       <p class="section-desc">
         Clear steps help avoid confusion and make the commission easier for both sides.
       </p>
@@ -1238,13 +1174,13 @@
       <div class="step reveal">
         <div class="step-number">2</div>
         <h3>I plan the logic</h3>
-        <p>I break down the system into RemoteEvents, server logic, client UI, and saving if needed.</p>
+        <p>I break the system into RemoteEvents, server logic, client UI, and saving if needed.</p>
       </div>
 
       <div class="step reveal">
         <div class="step-number">3</div>
         <h3>I script and test</h3>
-        <p>I build the system and test important cases like cooldowns, deaths, resets, mobile, and spam.</p>
+        <p>I test cooldowns, deaths, resets, mobile controls, spam, and important edge cases.</p>
       </div>
 
       <div class="step reveal">
@@ -1261,6 +1197,7 @@
         <div class="eyebrow">Pricing</div>
         <h2>Estimated prices</h2>
       </div>
+
       <p class="section-desc">
         Final price depends on difficulty, UI/model readiness, saving, animations, testing, and how big the system is.
       </p>
@@ -1288,7 +1225,7 @@
       <div class="price reveal">
         <h3>Large System</h3>
         <strong>Discussed</strong>
-        <p>Full round system, complex economy, full class system, big UI flow, advanced mechanics.</p>
+        <p>Full round system, complex economy, class system, big UI flow, or advanced mechanics.</p>
       </div>
     </div>
   </section>
@@ -1299,7 +1236,7 @@
         <div class="eyebrow">Contact</div>
         <h2>Need a Roblox scripter?</h2>
         <p>
-          Message me with what you need, your budget, and whether your UI/models/animations are already ready.
+          Message me with what you need, your budget, and whether your UI/models/animations are ready.
           I can work on many different Roblox systems, not only one game genre.
         </p>
 
@@ -1391,6 +1328,37 @@
         msg.textContent = "";
       }, 2500);
     }
+
+    const videos = document.querySelectorAll("video[data-video]");
+
+    videos.forEach((video) => {
+      const fileName = video.dataset.video;
+
+      const sourcesToTry = [
+        "portfolio_assets/clips/" + fileName,
+        fileName
+      ];
+
+      let sourceIndex = 0;
+
+      function trySource() {
+        if (sourceIndex >= sourcesToTry.length) {
+          video.removeAttribute("src");
+          video.load();
+          return;
+        }
+
+        video.src = sourcesToTry[sourceIndex];
+        video.load();
+      }
+
+      video.addEventListener("error", () => {
+        sourceIndex++;
+        trySource();
+      });
+
+      trySource();
+    });
   </script>
 </body>
 </html>
