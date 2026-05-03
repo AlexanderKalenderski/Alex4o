@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex | Roblox Scripter</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #08080c;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 100vh;
+      padding: 25px 8%;
+      background:
+        radial-gradient(circle at top left, rgba(255, 0, 60, 0.3), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.08), transparent 30%),
+        linear-gradient(135deg, #09090f, #15151f);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      color: #ff2d4d;
+      font-size: 24px;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #ddd;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #ff2d4d;
+    }
+
+    .hero {
+      max-width: 850px;
+      margin-top: 160px;
+    }
+
+    .tag {
+      color: #ff2d4d;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 64px;
+      line-height: 1.05;
+      margin-bottom: 18px;
+      text-shadow: 0 0 25px rgba(255, 45, 77, 0.35);
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #d6d6d6;
+      max-width: 700px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .primary {
+      background: #ff2d4d;
+      color: white;
+      box-shadow: 0 0 20px rgba(255, 45, 77, 0.35);
+    }
+
+    .primary:hover {
+      background: #ff4561;
+      transform: translateY(-3px);
+    }
+
+    .secondary {
+      border: 1px solid #ff2d4d;
+      color: #ff2d4d;
+    }
+
+    .secondary:hover {
+      background: rgba(255, 45, 77, 0.12);
+      transform: translateY(-3px);
+    }
+
+    section {
+      padding: 85px 8%;
+    }
+
+    section:nth-child(odd) {
+      background: #101018;
+    }
+
+    h2 {
+      font-size: 38px;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+    }
+
+    .card, .project, .price-box {
+      background: #151520;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.25);
+      transition: 0.2s;
+    }
+
+    .card {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .card:hover, .project:hover {
+      border-color: #ff2d4d;
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(255, 45, 77, 0.18);
+    }
+
+    .project {
+      margin-bottom: 20px;
+    }
+
+    .project h3 {
+      color: #ff2d4d;
+      margin-bottom: 8px;
+    }
+
+    .price-box p {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      max-width: 700px;
+      margin: 0 auto;
+      color: #d6d6d6;
+    }
+
+    .small {
+      margin-top: 25px !important;
+      font-size: 14px;
+      color: #aaa !important;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #050508;
+      color: #aaa;
+    }
+
+    @media (max-width: 700px) {
+      nav {
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        margin-top: 100px;
+      }
+
+      h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="logo">AlexScripts</div>
+
+      <div class="nav-links">
+        <a href="#skills">Skills</a>
+        <a href="#work">Work</a>
+        <a href="#prices">Prices</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="tag">Roblox Studio Developer</div>
+      <h1>Roblox Scripter for Hire</h1>
+      <p>
+        I create Roblox gameplay systems, abilities, UI systems, round systems,
+        shops, DataStores, combat mechanics, and bug fixes.
+      </p>
+
+      <div class="buttons">
+        <a href="#contact" class="btn primary">Contact Me</a>
+        <a href="#work" class="btn secondary">View My Work</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="skills">
+    <h2>What I Can Script</h2>
+
+    <div class="grid">
+      <div class="card">Combat Systems</div>
+      <div class="card">Ability Systems</div>
+      <div class="card">Round Systems</div>
+      <div class="card">Team Systems</div>
+      <div class="card">UI Scripting</div>
+      <div class="card">Shop Systems</div>
+      <div class="card">Gamepasses</div>
+      <div class="card">Developer Products</div>
+      <div class="card">DataStore Saving</div>
+      <div class="card">Camera Effects</div>
+      <div class="card">Music Zones</div>
+      <div class="card">Bug Fixing</div>
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Work Examples</h2>
+
+    <div class="project">
+      <h3>Ability System</h3>
+      <p>
+        Cooldowns, keybinds, mobile buttons, animations, sounds, server-side checks,
+        and anti-spam protection.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Round System</h3>
+      <p>
+        Intermission, timers, team assignment, spawns, role selection,
+        and round cleanup.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Shop / VIP System</h3>
+      <p>
+        Gamepass rewards, currency rewards, spin rewards, DataStore saving,
+        and one-time claim protection.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>UI Systems</h3>
+      <p>
+        Animated frames, cooldown labels, hover effects, warning effects,
+        and clean player feedback.
+      </p>
+    </div>
+  </section>
+
+  <section id="prices">
+    <h2>Prices</h2>
+
+    <div class="price-box">
+      <p><strong>Small bug fix:</strong> 50–300 Robux</p>
+      <p><strong>Small script:</strong> 300–1,000 Robux</p>
+      <p><strong>Medium system:</strong> 1,000–5,000 Robux</p>
+      <p><strong>Large custom system:</strong> Discussed privately</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+
+    <p>
+      Message me if you need a Roblox scripter. Please explain what you need,
+      your budget, and whether you already have UI, models, or animations ready.
+    </p>
+
+    <div class="buttons" style="justify-content: center;">
+      <a class="btn primary" href="https://www.roblox.com/" target="_blank">Roblox Profile</a>
+      <a class="btn secondary" href="mailto:youremail@example.com">Email Me</a>
+    </div>
+
+    <p class="small">Roblox username: Alexprorolblox1</p>
+  </section>
+
+  <footer>
+    <p>© 2026 AlexScripts. Roblox scripting portfolio.</p>
+  </footer>
+
+  <script>
+    console.log("Portfolio website loaded.");
+
+    const cards = document.querySelectorAll(".card, .project");
+
+    cards.forEach((card) => {
+      card.addEventListener("mouseenter", () => {
+        card.style.boxShadow = "0 0 30px rgba(255, 45, 77, 0.25)";
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.boxShadow = "0 0 25px rgba(0, 0, 0, 0.25)";
+      });
+    });
+  </script>
+</body>
+</html>
