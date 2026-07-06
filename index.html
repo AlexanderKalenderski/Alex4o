@@ -1049,6 +1049,50 @@
         transform: none;
       }
     }
+  
+    .clip-showcase-grid {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .clip-showcase-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      background: var(--panel);
+      box-shadow: 0 18px 55px rgba(0,0,0,0.3);
+    }
+
+    .clip-showcase-card video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #050505;
+    }
+
+    .clip-showcase-copy {
+      padding: 16px 18px 18px;
+    }
+
+    .clip-showcase-copy strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .clip-showcase-copy span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media (max-width: 720px) {
+      .clip-showcase-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -1216,14 +1260,14 @@
         <div class="stack">
           <article class="video-card reveal media-container">
             <div class="video-frame">
-              <video
+              <video autoplay
                 controls
                 muted
                 loop
                 playsinline
                 preload="metadata"
                 poster="portfolio_assets/screenshots/brainrot_ui_01.jpg"
-                data-src="portfolio_assets/clips/commission 02.mp4"
+                data-src="portfolio_assets/clips/commission_02.mp4"
               ></video>
             </div>
 
@@ -1244,14 +1288,14 @@
 
           <article class="video-card reveal media-container">
             <div class="video-frame">
-              <video
+              <video autoplay
                 controls
                 muted
                 loop
                 playsinline
                 preload="metadata"
                 poster="portfolio_assets/screenshots/brainrot_ui_02.jpg"
-                data-src="portfolio_assets/clips/commission 03.mp4"
+                data-src="portfolio_assets/clips/commission_03.mp4"
               ></video>
             </div>
 
@@ -1290,7 +1334,7 @@
       <div class="hauntbound-layout">
         <article class="feature-video reveal media-container">
           <div class="video-frame">
-            <video
+            <video autoplay
               controls
               muted
               loop
@@ -1394,7 +1438,75 @@
           <img src="portfolio_assets/screenshots/07_statistics_profile_ui.jpg" alt="Hauntbound shop or profile interface">
           <span class="gallery-label">Shop / Profile</span>
         </button>
+
+        <button class="gallery-item gallery-trigger media-container" type="button"
+          data-title="Hauntbound — Emergency Exit Event"
+          data-src="portfolio_assets/screenshots/06_emergency_exit_event.jpg">
+          <img src="portfolio_assets/screenshots/06_emergency_exit_event.jpg" alt="Hauntbound emergency exit event">
+          <span class="gallery-label">Emergency Exit Event</span>
+        </button>
+
+        <button class="gallery-item gallery-trigger media-container" type="button"
+          data-title="Hauntbound — Profile Backgrounds"
+          data-src="portfolio_assets/screenshots/08_profile_backgrounds_ui.jpg">
+          <img src="portfolio_assets/screenshots/08_profile_backgrounds_ui.jpg" alt="Hauntbound profile backgrounds interface">
+          <span class="gallery-label">Profile Backgrounds</span>
+        </button>
       </div>
+
+      <div class="section-head reveal" style="margin-top: 42px;">
+        <div>
+          <div class="eyebrow">More gameplay proof</div>
+          <h2 style="font-size: clamp(28px, 3.5vw, 42px);">Hauntbound system clips</h2>
+        </div>
+
+        <p class="section-desc">
+          Short videos showing the interfaces and systems working inside the game.
+        </p>
+      </div>
+
+      <div class="clip-showcase-grid reveal">
+        <article class="clip-showcase-card">
+          <video autoplay controls muted loop playsinline preload="metadata"
+            poster="portfolio_assets/screenshots/01_loading_screen_system.jpg"
+            data-src="portfolio_assets/clips/01_loading_screen_system.mp4"></video>
+          <div class="clip-showcase-copy">
+            <strong>Loading Screen System</strong>
+            <span>Animated game-start experience and presentation.</span>
+          </div>
+        </article>
+
+        <article class="clip-showcase-card">
+          <video autoplay controls muted loop playsinline preload="metadata"
+            poster="portfolio_assets/screenshots/03_map_intro_mission_ui.jpg"
+            data-src="portfolio_assets/clips/02_map_intro_mission_ui.mp4"></video>
+          <div class="clip-showcase-copy">
+            <strong>Map Intro & Mission UI</strong>
+            <span>Player guidance, role messaging and transitions.</span>
+          </div>
+        </article>
+
+        <article class="clip-showcase-card">
+          <video autoplay controls muted loop playsinline preload="metadata"
+            poster="portfolio_assets/screenshots/06_emergency_exit_event.jpg"
+            data-src="portfolio_assets/clips/04_emergency_exit_event.mp4"></video>
+          <div class="clip-showcase-copy">
+            <strong>Emergency Exit Event</strong>
+            <span>Timed gameplay event with feedback and state changes.</span>
+          </div>
+        </article>
+
+        <article class="clip-showcase-card">
+          <video autoplay controls muted loop playsinline preload="metadata"
+            poster="portfolio_assets/screenshots/07_statistics_profile_ui.jpg"
+            data-src="portfolio_assets/clips/05_statistics_and_profile_ui.mp4"></video>
+          <div class="clip-showcase-copy">
+            <strong>Statistics & Profile UI</strong>
+            <span>Player data presentation and profile customization.</span>
+          </div>
+        </article>
+      </div>
+
     </section>
 
     <section id="code" class="section">
@@ -1621,211 +1733,87 @@
       <img id="modalImage" src="" alt="Expanded portfolio preview">
     </div>
   </div>
-
   <script>
-    // =========================================================
-    // AUTOMATIC ASSET PATH DETECTION
-    // Works in BOTH structures:
-    //
-    // 1) index.html beside portfolio_assets/
-    //    index.html
-    //    portfolio_assets/screenshots/...
-    //    portfolio_assets/clips/...
-    //
-    // 2) index.html inside portfolio_assets/
-    //    portfolio_assets/index.html
-    //    portfolio_assets/screenshots/...
-    //    portfolio_assets/clips/...
-    // =========================================================
+    // Reveal every section immediately so content never stays invisible.
+    document.querySelectorAll(".reveal").forEach((element) => {
+      element.classList.add("show");
+    });
 
-    let assetBase = "portfolio_assets/";
+    // Load and automatically play all portfolio videos.
+    document.querySelectorAll("video[data-src]").forEach((video) => {
+      const source = video.getAttribute("data-src");
 
-    function testImage(path) {
-      return new Promise((resolve) => {
-        const image = new Image();
+      if (!source) return;
 
-        image.onload = () => resolve(true);
-        image.onerror = () => resolve(false);
+      video.muted = true;
+      video.autoplay = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = "auto";
+      video.src = source;
+      video.removeAttribute("data-src");
+      video.load();
 
-        image.src = path + "?asset-test=" + Date.now();
-      });
-    }
-
-    function removeKnownAssetPrefix(path) {
-      if (!path) return "";
-
-      return path
-        .replace(/^\.\/portfolio_assets\//, "")
-        .replace(/^portfolio_assets\//, "")
-        .replace(/^\.\/screenshots\//, "screenshots/")
-        .replace(/^\.\/clips\//, "clips/");
-    }
-
-    function buildAssetPath(originalPath) {
-      const relativePath = removeKnownAssetPrefix(originalPath);
-      return assetBase + relativePath;
-    }
-
-    async function detectAssetBase() {
-      // This exact image is visible in the provided folder screenshot.
-      const testFile = "screenshots/01_loading_screen_system.jpg";
-
-      const candidates = [
-        "portfolio_assets/",
-        "./portfolio_assets/",
-        "",
-        "./"
-      ];
-
-      for (const candidate of candidates) {
-        const exists = await testImage(candidate + testFile);
-
-        if (exists) {
-          assetBase = candidate;
-          console.log("Portfolio asset folder detected:", assetBase || "./");
-          return;
-        }
-      }
-
-      // Keep the root-folder structure as the fallback.
-      console.warn(
-        "Could not automatically find portfolio_assets. " +
-        "Check that index.html is either beside or inside portfolio_assets."
-      );
-    }
-
-    function applyResolvedAssetPaths() {
-      // Images
-      document.querySelectorAll("img[src]").forEach((image) => {
-        const originalPath = image.getAttribute("src");
-
-        if (
-          originalPath &&
-          (
-            originalPath.includes("portfolio_assets/") ||
-            originalPath.startsWith("screenshots/") ||
-            originalPath.startsWith("clips/")
-          )
-        ) {
-          image.src = buildAssetPath(originalPath);
-        }
-
-        image.addEventListener("error", () => {
-          console.error("Image failed to load:", image.src);
+      const beginPlayback = () => {
+        video.play().catch(() => {
+          // Some browsers may still require one click.
+          video.setAttribute("controls", "");
         });
-      });
-
-      // Gallery/modal paths and video data paths
-      document.querySelectorAll("[data-src]").forEach((element) => {
-        const originalPath = element.dataset.src;
-
-        if (originalPath) {
-          element.dataset.src = buildAssetPath(originalPath);
-        }
-      });
-
-      // Video poster images
-      document.querySelectorAll("video[poster]").forEach((video) => {
-        const originalPoster = video.getAttribute("poster");
-
-        if (originalPoster) {
-          video.poster = buildAssetPath(originalPoster);
-        }
-      });
-    }
-
-    function initializeRevealAnimations() {
-      const revealElements = document.querySelectorAll(".reveal");
-
-      if ("IntersectionObserver" in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show");
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          threshold: 0.1
-        });
-
-        revealElements.forEach((element) => revealObserver.observe(element));
-      } else {
-        revealElements.forEach((element) => element.classList.add("show"));
-      }
-    }
-
-    function initializeVideos() {
-      const lazyVideos = document.querySelectorAll("video[data-src]");
-
-      function loadVideo(video) {
-        if (video.dataset.loaded === "true") return;
-
-        video.dataset.loaded = "true";
-        video.src = video.dataset.src;
-        video.load();
-
-        video.addEventListener("error", () => {
-          console.error("Video failed to load:", video.src);
-        }, { once: true });
-      }
-
-      if ("IntersectionObserver" in window) {
-        const videoObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-
-            loadVideo(entry.target);
-            observer.unobserve(entry.target);
-          });
-        }, {
-          rootMargin: "300px"
-        });
-
-        lazyVideos.forEach((video) => videoObserver.observe(video));
-      } else {
-        lazyVideos.forEach(loadVideo);
-      }
-    }
-
-    function initializeGallery() {
-      const modal = document.getElementById("imageModal");
-      const modalImage = document.getElementById("modalImage");
-      const modalTitle = document.getElementById("modalTitle");
-      const galleryTriggers = document.querySelectorAll(".gallery-trigger");
-
-      galleryTriggers.forEach((trigger) => {
-        trigger.addEventListener("click", () => {
-          const source = trigger.dataset.src;
-          const title = trigger.dataset.title || "Portfolio Preview";
-
-          modalImage.src = source;
-          modalTitle.textContent = title;
-          modal.classList.add("open");
-          modal.setAttribute("aria-hidden", "false");
-          document.body.style.overflow = "hidden";
-        });
-      });
-
-      window.closeModal = function closeModal() {
-        modal.classList.remove("open");
-        modal.setAttribute("aria-hidden", "true");
-        modalImage.src = "";
-        document.body.style.overflow = "";
       };
 
-      modal.addEventListener("click", (event) => {
-        if (event.target === modal) {
-          window.closeModal();
-        }
-      });
+      video.addEventListener("loadeddata", beginPlayback, { once: true });
+      video.addEventListener("canplay", beginPlayback, { once: true });
 
-      document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && modal.classList.contains("open")) {
-          window.closeModal();
+      // Remove the preview image once the real clip starts.
+      video.addEventListener("playing", () => {
+        video.removeAttribute("poster");
+      }, { once: true });
+
+      // Let clicking the clip restart playback if a browser paused it.
+      video.addEventListener("click", () => {
+        if (video.paused) {
+          video.play().catch(() => {});
         }
       });
+    });
+
+    // Image preview modal.
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+    const modalTitle = document.getElementById("modalTitle");
+
+    document.querySelectorAll(".gallery-trigger").forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        modalImage.src = trigger.getAttribute("data-src");
+        modalTitle.textContent =
+          trigger.getAttribute("data-title") || "Portfolio Preview";
+
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+      modalImage.src = "";
+      document.body.style.overflow = "";
     }
+
+    window.closeModal = closeModal;
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
 
     async function copyText(text, successMessage) {
       const message = document.getElementById("copyMessage");
@@ -1834,28 +1822,20 @@
         await navigator.clipboard.writeText(text);
         message.textContent = successMessage;
       } catch (error) {
-        message.textContent = "Copy failed. Copy it manually: " + text;
+        message.textContent = "Copy manually: " + text;
       }
 
-      window.setTimeout(() => {
+      setTimeout(() => {
         message.textContent = "";
       }, 2800);
     }
 
-    window.copyDiscordId = function copyDiscordId() {
+    function copyDiscordId() {
       const id = document.getElementById("discordId").textContent.trim();
       copyText(id, "Discord user ID copied.");
-    };
-
-    async function initializePortfolio() {
-      await detectAssetBase();
-      applyResolvedAssetPaths();
-      initializeRevealAnimations();
-      initializeVideos();
-      initializeGallery();
     }
 
-    initializePortfolio();
+    window.copyDiscordId = copyDiscordId;
   </script>
 </body>
 </html>
