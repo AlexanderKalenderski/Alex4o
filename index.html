@@ -1093,6 +1093,40 @@
       }
     }
 
+  
+    .code-grid-single {
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 940px;
+    }
+
+    .featured-code {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      align-items: stretch;
+    }
+
+    .featured-code .code-preview {
+      min-height: 390px;
+      aspect-ratio: auto;
+    }
+
+    .featured-code .code-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 28px;
+    }
+
+    @media (max-width: 820px) {
+      .featured-code {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-code .code-preview {
+        min-height: 260px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1211,9 +1245,9 @@
 
           <div class="case-body">
             <p>
-              Designed multiple screens with consistent spacing, hierarchy, icons and visual
-              language. Replace this paragraph with the exact systems you created, such as shop,
-              inventory, upgrades, index, rewards or settings.
+              Designed five connected interface screens for a simulator-style Roblox game,
+              covering shop, item selection, progression and navigation. I created a consistent
+              color system, clear button hierarchy and readable layouts across the full package.
             </p>
 
             <div class="tags">
@@ -1266,22 +1300,25 @@
                 loop
                 playsinline
                 preload="metadata"
-                poster="portfolio_assets/screenshots/brainrot_ui_01.jpg"
+                poster="portfolio_assets/screenshots/commission_02_poster.jpg"
                 data-src="portfolio_assets/clips/commission_02.mp4"
               ></video>
             </div>
 
             <div class="video-body">
               <span class="label">Client Work · Commission 2</span>
-              <h3>Gameplay / UI Commission</h3>
+              <h3>Interactive Loading Screen</h3>
               <p>
-                Replace this with the exact result, your role, and what was delivered for the client.
+                Designed and scripted a complete loading experience with a live 3D character
+                presentation, rotating tips and updates, asset-progress feedback, skip handling
+                and polished animated transitions.
               </p>
 
               <div class="tags">
-                <span>Roblox Studio</span>
-                <span>Implementation</span>
-                <span>Client Delivery</span>
+                <span>UI Design</span>
+                <span>Loading System</span>
+                <span>3D Presentation</span>
+                <span>UI Scripting</span>
               </div>
             </div>
           </article>
@@ -1294,22 +1331,25 @@
                 loop
                 playsinline
                 preload="metadata"
-                poster="portfolio_assets/screenshots/brainrot_ui_02.jpg"
+                poster="portfolio_assets/screenshots/commission_03_poster.jpg"
                 data-src="portfolio_assets/clips/commission_03.mp4"
               ></video>
             </div>
 
             <div class="video-body">
               <span class="label">Client Work · Commission 3</span>
-              <h3>Scripting / Systems Commission</h3>
+              <h3>Expandable In-Game Menu</h3>
               <p>
-                Explain the requested feature, the challenge you solved, and the finished outcome.
+                Built a compact quick-access menu for inventory, music, settings, codes and future
+                features. The interface expands smoothly, stays readable during gameplay and closes
+                without covering the entire screen.
               </p>
 
               <div class="tags">
-                <span>Lua</span>
-                <span>Gameplay Systems</span>
-                <span>Testing</span>
+                <span>UI Scripting</span>
+                <span>Menu System</span>
+                <span>Tween Animation</span>
+                <span>Gameplay UX</span>
               </div>
             </div>
           </article>
@@ -1513,81 +1553,48 @@
       <div class="section-head reveal">
         <div>
           <div class="eyebrow">Technical proof</div>
-          <h2>Selected scripting samples</h2>
+          <h2>Production Lua architecture</h2>
         </div>
 
         <p class="section-desc">
-          A sanitized code screenshot is included below. Add more separate samples later when you have them,
-          but never publish an entire client system or private source code.
+          A real large-scale system from my own development work, showing how I organize
+          connected server, client and gameplay logic without exposing private client source code.
         </p>
       </div>
 
-      <div class="code-grid">
-        <article class="code-card reveal media-container">
+      <div class="code-grid code-grid-single">
+        <article class="code-card featured-code reveal media-container">
           <button class="code-preview gallery-trigger" type="button"
-            data-title="Round Manager — Sanitized Lua Sample"
+            data-title="Large-Scale Roblox Lua System"
             data-src="portfolio_assets/screenshots/09_code_proof_large_script.jpg">
             <img
               src="portfolio_assets/screenshots/09_code_proof_large_script.jpg"
-              alt="Roblox Lua round manager code sample"
-             
+              alt="Large-scale Roblox Lua gameplay system"
             >
           </button>
 
           <div class="code-body">
-            <span class="label">Lua · Server</span>
-            <h3>Round State Management</h3>
+            <span class="label">Lua · Production System</span>
+            <h3>Large-Scale Gameplay Architecture</h3>
             <p>
-              Show team validation, state transitions, cleanup and safe handling of players leaving.
+              A connected Roblox system combining server logic, RemoteEvents, role validation,
+              round states and feature modules. The full source remains private; this preview
+              demonstrates the scale and organization of the implementation.
             </p>
-          </div>
-        </article>
 
-        <article class="code-card reveal media-container">
-          <button class="code-preview gallery-trigger" type="button"
-            data-title="UI Controller — Sanitized Lua Sample"
-            data-src="portfolio_assets/screenshots/09_code_proof_large_script.jpg">
-            <img
-              src="portfolio_assets/screenshots/09_code_proof_large_script.jpg"
-              alt="Roblox Lua UI controller code sample"
-             
-            >
-          </button>
-
-          <div class="code-body">
-            <span class="label">Lua · Client</span>
-            <h3>Responsive UI Controller</h3>
-            <p>
-              Show clean event connections, animations, input handling and mobile-safe behavior.
-            </p>
-          </div>
-        </article>
-
-        <article class="code-card reveal media-container">
-          <button class="code-preview gallery-trigger" type="button"
-            data-title="Data Saving — Sanitized Lua Sample"
-            data-src="portfolio_assets/screenshots/09_code_proof_large_script.jpg">
-            <img
-              src="portfolio_assets/screenshots/09_code_proof_large_script.jpg"
-              alt="Roblox Lua data saving code sample"
-             
-            >
-          </button>
-
-          <div class="code-body">
-            <span class="label">Lua · Data</span>
-            <h3>Safe Data / Ownership Logic</h3>
-            <p>
-              Show defaults, validation, protected calls and organized player-data handling.
-            </p>
+            <div class="tags">
+              <span>Server / Client</span>
+              <span>RemoteEvents</span>
+              <span>State Management</span>
+              <span>Modular Logic</span>
+            </div>
           </div>
         </article>
       </div>
 
       <div class="privacy-note reveal">
-        <strong>Important:</strong> crop each sample to about 25–45 useful lines. Blur private
-        game names, secret IDs, webhooks, API keys and any code the client did not approve for
-        public display.
+        Full commissioned source code is kept private. Focused, sanitized code samples can be
+        provided to serious clients when needed.
       </div>
     </section>
 
@@ -1739,38 +1746,61 @@
       element.classList.add("show");
     });
 
-    // Load and automatically play all portfolio videos.
-    document.querySelectorAll("video[data-src]").forEach((video) => {
-      const source = video.getAttribute("data-src");
+    // Load videos only near the viewport, play them while visible,
+    // and pause them off-screen to reduce bandwidth and page lag.
+    const portfolioVideos = document.querySelectorAll("video[data-src]");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+    function prepareVideo(video) {
+      if (video.dataset.loaded === "true") return;
+
+      const source = video.getAttribute("data-src");
       if (!source) return;
 
+      video.dataset.loaded = "true";
       video.muted = true;
-      video.autoplay = true;
       video.loop = true;
       video.playsInline = true;
-      video.preload = "auto";
+      video.preload = "metadata";
       video.src = source;
-      video.removeAttribute("data-src");
       video.load();
 
-      const beginPlayback = () => {
-        video.play().catch(() => {
-          // Some browsers may still require one click.
-          video.setAttribute("controls", "");
-        });
-      };
-
-      video.addEventListener("loadeddata", beginPlayback, { once: true });
-      video.addEventListener("canplay", beginPlayback, { once: true });
-
-      // Remove the preview image once the real clip starts.
       video.addEventListener("playing", () => {
         video.removeAttribute("poster");
       }, { once: true });
+    }
 
-      // Let clicking the clip restart playback if a browser paused it.
+    if ("IntersectionObserver" in window) {
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+
+          if (entry.isIntersecting) {
+            prepareVideo(video);
+
+            if (!reducedMotion) {
+              video.play().catch(() => {
+                video.controls = true;
+              });
+            }
+          } else if (!video.paused) {
+            video.pause();
+          }
+        });
+      }, {
+        rootMargin: "240px 0px",
+        threshold: 0.28
+      });
+
+      portfolioVideos.forEach((video) => videoObserver.observe(video));
+    } else {
+      portfolioVideos.forEach(prepareVideo);
+    }
+
+    portfolioVideos.forEach((video) => {
       video.addEventListener("click", () => {
+        prepareVideo(video);
+
         if (video.paused) {
           video.play().catch(() => {});
         }
