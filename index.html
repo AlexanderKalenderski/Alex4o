@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Alex | Roblox UI Designer & Scripter</title>
+  <title>Alex | Roblox UI Designer, Scripter & 3D Artist</title>
   <meta
     name="description"
-    content="Roblox UI designer and gameplay scripter creating responsive interfaces, polished systems, cutscenes, effects, and mobile-ready experiences."
+    content="Roblox UI designer, gameplay scripter and 3D artist creating polished interfaces, interactive systems and game-ready Blender assets."
   >
 
   <style>
@@ -1127,6 +1127,88 @@
       }
     }
 
+
+
+    /* Newer skill showcase: one strong modeling image instead of a large gallery. */
+    .modeling-card {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .modeling-visual {
+      position: relative;
+      min-height: 420px;
+      overflow: hidden;
+      border: 0;
+      padding: 0;
+      background: #090b10;
+      cursor: pointer;
+    }
+
+    .modeling-visual img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .modeling-visual:hover img {
+      transform: scale(1.025);
+    }
+
+    .modeling-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(to top, rgba(6,7,11,0.5), transparent 48%);
+    }
+
+    .modeling-copy {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .modeling-copy h3 {
+      margin: 11px 0 10px;
+      font-size: 27px;
+      line-height: 1.15;
+    }
+
+    .modeling-copy p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .legacy-note {
+      margin-top: 16px;
+      padding: 13px 15px;
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px;
+      color: #d8dce5;
+      background: rgba(255,255,255,0.035);
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .modeling-card {
+        grid-template-columns: 1fr;
+      }
+
+      .modeling-visual,
+      .modeling-visual img {
+        min-height: 300px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1136,9 +1218,10 @@
       <a class="brand" href="#top">Alex<span>Creates</span></a>
 
       <div class="nav-links">
-        <a href="#client-work">Client Work</a>
-        <a href="#hauntbound">Hauntbound</a>
+        <a href="#client-work">UI Work</a>
+        <a href="#modeling">Modeling</a>
         <a href="#code">Code</a>
+        <a href="#hauntbound">Full Game</a>
         <a href="#services">Services</a>
         <a href="#contact">Contact</a>
       </div>
@@ -1150,38 +1233,37 @@
   <main id="top" class="page">
     <header class="hero">
       <div class="reveal">
-        <div class="kicker">Roblox UI Designer & Gameplay Scripter</div>
+        <div class="kicker">Roblox UI Designer · Scripter · 3D Artist</div>
 
         <h1>
-          I turn Roblox ideas into
-          <span class="gradient-text">polished, playable systems.</span>
+          I build Roblox experiences with
+          <span class="gradient-text">clean UI, strong systems & game-ready 3D.</span>
         </h1>
 
         <p class="hero-copy">
-          I design responsive interfaces and script complete gameplay features for Roblox.
-          My work includes commissioned UI, gameplay systems, cutscenes, mobile support,
-          effects, saving, and long-term development on Hauntbound.
+          I specialise in Roblox UI design, with gameplay scripting and 3D modeling as supporting skills.
+          I create interfaces that are readable, responsive and built for real gameplay—not just static mockups.
         </p>
 
         <div class="actions">
-          <a class="btn btn-primary" href="#client-work">View Client Work</a>
+          <a class="btn btn-primary" href="#client-work">View UI Work</a>
           <a class="btn btn-secondary" href="#contact">Contact Me</a>
         </div>
 
         <div class="trust-row">
           <div class="trust-card">
-            <strong>3</strong>
-            <span>Client commission projects</span>
+            <strong>Client UI</strong>
+            <span>Custom interfaces built for real projects</span>
           </div>
 
           <div class="trust-card">
             <strong>UI + Code</strong>
-            <span>Design and implementation</span>
+            <span>I can implement what I design</span>
           </div>
 
           <div class="trust-card">
-            <strong>PC + Mobile</strong>
-            <span>Responsive gameplay support</span>
+            <strong>3D Modeling</strong>
+            <span>Game-ready Blender assets</span>
           </div>
         </div>
       </div>
@@ -1189,24 +1271,22 @@
       <div class="hero-proof reveal">
         <div class="hero-main media-container">
           <img
-            src="portfolio_assets/screenshots/07_statistics_profile_ui.jpg"
-            alt="Hauntbound Roblox game showcase"
-           
+            src="portfolio_assets/screenshots/brainrot_ui_01.jpg"
+            alt="Recent Roblox UI commission showcase"
           >
 
           <div class="hero-caption">
-            <strong>Hauntbound</strong>
-            <span>Lead development, UI, systems, cutscenes, gameplay and polish</span>
+            <strong>Recent UI Commission</strong>
+            <span>Custom visual system, hierarchy and multi-screen interface package</span>
           </div>
         </div>
 
         <div class="hero-mini media-container">
           <img
-            src="portfolio_assets/screenshots/brainrot_ui_01.jpg"
-            alt="Client UI commission"
-           
+            src="portfolio_assets/screenshots/commission_02_poster.jpg"
+            alt="Scripted Roblox loading screen commission"
           >
-          <div class="hero-mini-label">Client UI Commission</div>
+          <div class="hero-mini-label">Scripted UI Experience</div>
         </div>
       </div>
     </header>
@@ -1214,13 +1294,13 @@
     <section id="client-work" class="section">
       <div class="section-head reveal">
         <div>
-          <div class="eyebrow">Paid and collaborative work</div>
-          <h2>Client commissions</h2>
+          <div class="eyebrow">Recent paid work</div>
+          <h2>UI commissions</h2>
         </div>
 
         <p class="section-desc">
-          Work created for other Roblox developers and teams. This section proves that I can
-          follow another project’s style, requirements, deadlines and existing structure.
+          Interfaces created for other Roblox developers and teams, with a focus on strong visual hierarchy,
+          clear gameplay readability and matching the style of each project.
         </p>
       </div>
 
@@ -1306,7 +1386,7 @@
             </div>
 
             <div class="video-body">
-              <span class="label">Client Work · Commission 2</span>
+              <span class="label">Client Work · Loading UI</span>
               <h3>Interactive Loading Screen</h3>
               <p>
                 Designed and scripted a complete loading experience with a live 3D character
@@ -1337,7 +1417,7 @@
             </div>
 
             <div class="video-body">
-              <span class="label">Client Work · Commission 3</span>
+              <span class="label">Client Work · Menu System</span>
               <h3>Expandable In-Game Menu</h3>
               <p>
                 Built a compact quick-access menu for inventory, music, settings, codes and future
@@ -1357,196 +1437,48 @@
       </div>
     </section>
 
-    <section id="hauntbound" class="section">
+
+
+
+    <section id="modeling" class="section">
       <div class="section-head reveal">
         <div>
-          <div class="eyebrow">Main case study</div>
-          <h2>Hauntbound</h2>
+          <div class="eyebrow">3D work</div>
+          <h2>Game-ready modeling</h2>
         </div>
 
         <p class="section-desc">
-          Hauntbound demonstrates my ability to manage a large connected project—not just one
-          isolated script. It includes role-based rounds, interfaces, abilities, cutscenes,
-          progression, mobile support and extensive polish.
+          I also create stylized low- and mid-poly assets in Blender for Roblox, giving me a better
+          understanding of how UI, gameplay and the 3D world need to work together.
         </p>
       </div>
 
-      <div class="hauntbound-layout">
-        <article class="feature-video reveal media-container">
-          <div class="video-frame">
-            <video autoplay
-              controls
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              poster="portfolio_assets/screenshots/04_gameplay_ability_system.jpg"
-              data-src="portfolio_assets/clips/03_gameplay_ability_system.mp4"
-            ></video>
-          </div>
+      <article class="modeling-card reveal">
+        <button class="modeling-visual gallery-trigger" type="button"
+          data-title="3D Modeling Showcase"
+          data-src="portfolio_assets/screenshots/modeling_showcase.jpg">
+          <img
+            src="portfolio_assets/screenshots/modeling_showcase.jpg"
+            alt="Blender modeling showcase for Roblox"
+          >
+        </button>
 
-          <div class="feature-copy">
-            <span class="label">Original Project · Lead Developer</span>
-            <h3>Complete asymmetric horror game systems</h3>
-            <p>
-              I developed and connected the game’s UI, round logic, roles, abilities, camera work,
-              cutscenes, rewards, effects, shops, mobile controls and many supporting systems.
-            </p>
+        <div class="modeling-copy">
+          <span class="label">Blender · Roblox Assets</span>
+          <h3>Stylized props built for games</h3>
+          <p>
+            My modeling work focuses on clean silhouettes, readable materials and useful game-ready detail.
+            I build assets with Roblox scale and performance in mind instead of adding complexity that players will never notice.
+          </p>
 
-            <div class="tags">
-              <span>UI / UX</span>
-              <span>Round Systems</span>
-              <span>Cutscenes</span>
-              <span>Abilities</span>
-              <span>Data Saving</span>
-              <span>PC + Mobile</span>
-            </div>
-
-            <a
-              class="project-link"
-              href="https://www.roblox.com/games/136411799005253/Hauntbound"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Open Hauntbound on Roblox ↗
-            </a>
-          </div>
-        </article>
-
-        <div class="metric-grid reveal">
-          <div class="metric">
-            <strong>Role-Based Rounds</strong>
-            <span>Killer, Sheriff, Survivors, special classes and connected end conditions.</span>
-          </div>
-
-          <div class="metric">
-            <strong>Interface Systems</strong>
-            <span>HUDs, loading, shops, profiles, quests, results and responsive controls.</span>
-          </div>
-
-          <div class="metric">
-            <strong>Cinematic Work</strong>
-            <span>Camera sequences, cutscenes, transitions, animation events, VFX and SFX.</span>
-          </div>
-
-          <div class="metric">
-            <strong>Long-Term Debugging</strong>
-            <span>Multiplayer edge cases, latency, respawns, mobile behavior and state cleanup.</span>
+          <div class="tags">
+            <span>Blender</span>
+            <span>Low / Mid Poly</span>
+            <span>Props & Equipment</span>
+            <span>Roblox Ready</span>
           </div>
         </div>
-      </div>
-
-      <div class="gallery reveal">
-        <button class="gallery-item gallery-trigger media-container" type="button"
-          data-title="Hauntbound — Loading Screen"
-          data-src="portfolio_assets/screenshots/01_loading_screen_system.jpg">
-          <img src="portfolio_assets/screenshots/01_loading_screen_system.jpg" alt="Hauntbound loading screen">
-          <span class="gallery-label">Loading Screen</span>
-        </button>
-
-        <button class="gallery-item gallery-trigger media-container" type="button"
-          data-title="Hauntbound — Gameplay HUD"
-          data-src="portfolio_assets/screenshots/04_gameplay_ability_system.jpg">
-          <img src="portfolio_assets/screenshots/04_gameplay_ability_system.jpg" alt="Hauntbound gameplay HUD">
-          <span class="gallery-label">Gameplay HUD</span>
-        </button>
-
-        <button class="gallery-item gallery-trigger media-container" type="button"
-          data-title="Hauntbound — News Interface"
-          data-src="portfolio_assets/screenshots/02_inventory_ui_system.jpg">
-          <img src="portfolio_assets/screenshots/02_inventory_ui_system.jpg" alt="Hauntbound news interface">
-          <span class="gallery-label">News Interface</span>
-        </button>
-
-        <button class="gallery-item gallery-trigger media-container" type="button"
-          data-title="Hauntbound — Cutscene"
-          data-src="portfolio_assets/screenshots/03_map_intro_mission_ui.jpg">
-          <img src="portfolio_assets/screenshots/03_map_intro_mission_ui.jpg" alt="Hauntbound cutscene">
-          <span class="gallery-label">Cutscene System</span>
-        </button>
-
-        <button class="gallery-item gallery-trigger media-container" type="button"
-          data-title="Hauntbound — Mobile Controls"
-          data-src="portfolio_assets/screenshots/05_mobile_keybind_ability_ui.jpg">
-          <img src="portfolio_assets/screenshots/05_mobile_keybind_ability_ui.jpg" alt="Hauntbound mobile controls">
-          <span class="gallery-label">Mobile Controls</span>
-        </button>
-
-        <button class="gallery-item gallery-trigger media-container" type="button"
-          data-title="Hauntbound — Shop / Profile"
-          data-src="portfolio_assets/screenshots/07_statistics_profile_ui.jpg">
-          <img src="portfolio_assets/screenshots/07_statistics_profile_ui.jpg" alt="Hauntbound shop or profile interface">
-          <span class="gallery-label">Shop / Profile</span>
-        </button>
-
-        <button class="gallery-item gallery-trigger media-container" type="button"
-          data-title="Hauntbound — Emergency Exit Event"
-          data-src="portfolio_assets/screenshots/06_emergency_exit_event.jpg">
-          <img src="portfolio_assets/screenshots/06_emergency_exit_event.jpg" alt="Hauntbound emergency exit event">
-          <span class="gallery-label">Emergency Exit Event</span>
-        </button>
-
-        <button class="gallery-item gallery-trigger media-container" type="button"
-          data-title="Hauntbound — Profile Backgrounds"
-          data-src="portfolio_assets/screenshots/08_profile_backgrounds_ui.jpg">
-          <img src="portfolio_assets/screenshots/08_profile_backgrounds_ui.jpg" alt="Hauntbound profile backgrounds interface">
-          <span class="gallery-label">Profile Backgrounds</span>
-        </button>
-      </div>
-
-      <div class="section-head reveal" style="margin-top: 42px;">
-        <div>
-          <div class="eyebrow">More gameplay proof</div>
-          <h2 style="font-size: clamp(28px, 3.5vw, 42px);">Hauntbound system clips</h2>
-        </div>
-
-        <p class="section-desc">
-          Short videos showing the interfaces and systems working inside the game.
-        </p>
-      </div>
-
-      <div class="clip-showcase-grid reveal">
-        <article class="clip-showcase-card">
-          <video autoplay controls muted loop playsinline preload="metadata"
-            poster="portfolio_assets/screenshots/01_loading_screen_system.jpg"
-            data-src="portfolio_assets/clips/01_loading_screen_system.mp4"></video>
-          <div class="clip-showcase-copy">
-            <strong>Loading Screen System</strong>
-            <span>Animated game-start experience and presentation.</span>
-          </div>
-        </article>
-
-        <article class="clip-showcase-card">
-          <video autoplay controls muted loop playsinline preload="metadata"
-            poster="portfolio_assets/screenshots/03_map_intro_mission_ui.jpg"
-            data-src="portfolio_assets/clips/02_map_intro_mission_ui.mp4"></video>
-          <div class="clip-showcase-copy">
-            <strong>Map Intro & Mission UI</strong>
-            <span>Player guidance, role messaging and transitions.</span>
-          </div>
-        </article>
-
-        <article class="clip-showcase-card">
-          <video autoplay controls muted loop playsinline preload="metadata"
-            poster="portfolio_assets/screenshots/06_emergency_exit_event.jpg"
-            data-src="portfolio_assets/clips/04_emergency_exit_event.mp4"></video>
-          <div class="clip-showcase-copy">
-            <strong>Emergency Exit Event</strong>
-            <span>Timed gameplay event with feedback and state changes.</span>
-          </div>
-        </article>
-
-        <article class="clip-showcase-card">
-          <video autoplay controls muted loop playsinline preload="metadata"
-            poster="portfolio_assets/screenshots/07_statistics_profile_ui.jpg"
-            data-src="portfolio_assets/clips/05_statistics_and_profile_ui.mp4"></video>
-          <div class="clip-showcase-copy">
-            <strong>Statistics & Profile UI</strong>
-            <span>Player data presentation and profile customization.</span>
-          </div>
-        </article>
-      </div>
-
+      </article>
     </section>
 
     <section id="code" class="section">
@@ -1557,8 +1489,8 @@
         </div>
 
         <p class="section-desc">
-          A real large-scale system from my own development work, showing how I organize
-          connected server, client and gameplay logic without exposing private client source code.
+          A large-scale system from my development work, showing how I organize connected server,
+          client and gameplay logic without exposing private commissioned source code.
         </p>
       </div>
 
@@ -1598,16 +1530,98 @@
       </div>
     </section>
 
+    <section id="hauntbound" class="section">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Earlier full-game project</div>
+          <h2>Hauntbound</h2>
+        </div>
+
+        <p class="section-desc">
+          An older project kept here as proof of project scale and technical experience. My current UI
+          standard is better represented by the commission work above.
+        </p>
+      </div>
+
+      <div class="hauntbound-layout">
+        <article class="feature-video reveal media-container">
+          <div class="video-frame">
+            <video autoplay
+              controls
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="portfolio_assets/screenshots/04_gameplay_ability_system.jpg"
+              data-src="portfolio_assets/clips/03_gameplay_ability_system.mp4"
+            ></video>
+          </div>
+
+          <div class="feature-copy">
+            <span class="label">Earlier Project · Lead Developer</span>
+            <h3>Built as a complete multiplayer game</h3>
+            <p>
+              I developed and connected the UI, round logic, roles, abilities, camera work, cutscenes,
+              rewards, effects, shops, mobile controls and supporting multiplayer systems.
+            </p>
+
+            <div class="tags">
+              <span>Full-Game Development</span>
+              <span>UI / UX</span>
+              <span>Gameplay Systems</span>
+              <span>Multiplayer</span>
+              <span>PC + Mobile</span>
+            </div>
+
+            <div class="legacy-note">
+              Kept as technical and project-scale proof rather than as a representation of my current visual standard.
+            </div>
+
+            <a
+              class="project-link"
+              href="https://www.roblox.com/games/136411799005253/Hauntbound"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Hauntbound on Roblox ↗
+            </a>
+          </div>
+        </article>
+
+        <div class="metric-grid reveal">
+          <div class="metric">
+            <strong>Connected Systems</strong>
+            <span>Rounds, roles, abilities, rewards and state-dependent gameplay working together.</span>
+          </div>
+
+          <div class="metric">
+            <strong>Interface Experience</strong>
+            <span>HUDs, shops, profiles, loading, results and gameplay feedback.</span>
+          </div>
+
+          <div class="metric">
+            <strong>Cinematic Work</strong>
+            <span>Camera sequences, transitions, animation events, VFX and SFX.</span>
+          </div>
+
+          <div class="metric">
+            <strong>Multiplayer Debugging</strong>
+            <span>Respawns, latency, mobile behavior, edge cases and state cleanup.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="services" class="section">
       <div class="section-head reveal">
         <div>
           <div class="eyebrow">What I offer</div>
-          <h2>UI design and scripting</h2>
+          <h2>UI, scripting & 3D</h2>
         </div>
 
         <p class="section-desc">
-          My strongest advantage is that I can both create the interface and make it function,
-          reducing handoff problems between separate designers and programmers.
+          UI is my main focus, but I also understand the scripting and 3D work around it. That helps me
+          design interfaces that fit the actual game instead of feeling disconnected from it.
         </p>
       </div>
 
@@ -1631,9 +1645,9 @@
         </article>
 
         <article class="service-card reveal">
-          <div class="service-icon">FX</div>
-          <h3>Cinematics & Polish</h3>
-          <p>Camera work, cutscenes, VFX, SFX, transitions and stronger gameplay feedback.</p>
+          <div class="service-icon">3D</div>
+          <h3>3D Modeling</h3>
+          <p>Stylized low- and mid-poly props, equipment and game-ready Blender assets for Roblox.</p>
         </article>
       </div>
     </section>
@@ -1726,7 +1740,7 @@
 
   <footer>
     <div class="page">
-      © 2026 AlexCreates — Roblox UI design and gameplay scripting portfolio.
+      © 2026 AlexCreates — Roblox UI design, scripting and 3D modeling portfolio.
     </div>
   </footer>
 
