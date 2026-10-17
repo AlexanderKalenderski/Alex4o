@@ -356,6 +356,46 @@
       object-fit: cover;
     }
 
+
+    /* Modeling portfolio */
+    .modeling-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .modeling-feature {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(290px, 1fr);
+      align-items: center;
+    }
+
+    .modeling-feature .image-button,
+    .modeling-feature .image-button img {
+      height: 100%;
+    }
+
+    .modeling-feature .image-button img {
+      min-height: 320px;
+      max-height: 470px;
+      object-fit: cover;
+    }
+
+    .modeling-feature .project-copy {
+      padding: 30px;
+    }
+
+    .modeling-card .image-button img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .modeling-card .project-copy {
+      padding: 21px 22px 24px;
+    }
+
     .video-stack {
       display: grid;
       gap: 24px;
@@ -512,6 +552,21 @@
     }
 
     @media (max-width: 900px) {
+      .modeling-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .modeling-feature .image-button,
+      .modeling-feature .image-button img {
+        height: auto;
+      }
+
+      .modeling-feature .image-button img {
+        min-height: 0;
+        max-height: none;
+        aspect-ratio: 16 / 9;
+      }
+
       .hero {
         gap: 28px;
         padding: 60px 0;
@@ -535,6 +590,19 @@
     }
 
     @media (max-width: 650px) {
+      .modeling-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .modeling-feature {
+        grid-column: auto;
+      }
+
+      .modeling-feature .project-copy {
+        padding: 20px;
+      }
+
       html {
         scroll-padding-top: 125px;
       }
@@ -649,12 +717,13 @@
         </p>
 
         <p class="hero-about">
-          UI is my main focus. Below are some commissions and examples
-          of my work, from interface design to scripting and 3D props.
+          Explore a selection of my UI work, Luau scripting and 3D models.
+          I create custom Roblox assets in Blender, from stylized pieces to detailed models.
         </p>
 
         <div class="actions">
           <a class="button button-primary" href="#ui">See my work</a>
+          <a class="button" href="#modeling">3D models</a>
           <a class="button" href="#contact">Contact me</a>
         </div>
       </div>
@@ -869,44 +938,106 @@
 
     <section id="modeling" class="section">
       <div class="section-heading">
-        <h2>Modeling</h2>
+        <h2>3D modeling</h2>
         <p>
-          Some of my Blender work. I make stylized props,
-          equipment and other assets for games.
+          A selection of my Blender work, including detailed vehicles,
+          textured props and stylized assets. I work across stud-style,
+          low-poly, mid-poly and high-poly designs.
         </p>
       </div>
 
-      <article class="project split-project">
-        <button
-          class="image-button"
-          type="button"
-          data-preview="portfolio_assets/screenshots/modeling_showcase.jpg"
-          data-title="Blender modeling showcase"
-          aria-label="Enlarge modeling showcase"
-        >
-          <img
-            src="portfolio_assets/screenshots/modeling_showcase.jpg"
-            alt="A showcase of my Blender modeling work"
-            loading="lazy"
+      <div class="modeling-grid">
+        <article class="project modeling-feature">
+          <button
+            class="image-button"
+            type="button"
+            data-preview="portfolio_assets/screenshots/vesper_r9.jpg"
+            data-title="Vesper R9 — Sports car"
+            aria-label="View full-size Vesper R9 sports car"
           >
-        </button>
+            <img
+              src="portfolio_assets/screenshots/vesper_r9.jpg"
+              alt="Detailed teal Vesper R9 sports car with custom interior and wheels"
+              loading="lazy"
+            >
+          </button>
 
-        <div class="project-copy">
-          <div class="project-type">Blender</div>
-          <h3>Props & equipment</h3>
-
-          <p>
-            I work with low- and mid-poly models, with attention
-            to shape, materials and the smaller details.
-          </p>
-
-          <div class="tags">
-            <span>Blender</span>
-            <span>Low / mid poly</span>
-            <span>3D props</span>
+          <div class="project-copy">
+            <div class="project-type">Featured 3D model · Blender</div>
+            <h3>Vesper R9</h3>
+            <p>
+              A detailed sports car model showcasing hard-surface modeling,
+              interior details, materials and presentation. Built with a focus
+              on shape, proportions and finish.
+            </p>
+            <div class="tags">
+              <span>Vehicle modeling</span>
+              <span>Detailed assets</span>
+              <span>Materials</span>
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+
+        <article class="project modeling-card">
+          <button
+            class="image-button"
+            type="button"
+            data-preview="portfolio_assets/screenshots/modeling_showcase.jpg"
+            data-title="Equipment & props"
+            aria-label="View full-size equipment and prop models"
+          >
+            <img
+              src="portfolio_assets/screenshots/modeling_showcase.jpg"
+              alt="Collection of detailed equipment and prop models with wood and metal textures"
+              loading="lazy"
+            >
+          </button>
+
+          <div class="project-copy">
+            <div class="project-type">3D assets · Blender</div>
+            <h3>Equipment & props</h3>
+            <p>
+              A collection of custom assets with different shapes, surface
+              finishes and applied textures, including wood and metal materials.
+            </p>
+            <div class="tags">
+              <span>Props</span>
+              <span>Texturing</span>
+              <span>Hard-surface</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project modeling-card">
+          <button
+            class="image-button"
+            type="button"
+            data-preview="portfolio_assets/screenshots/stylized_tree.jpg"
+            data-title="Stylized tree"
+            aria-label="View full-size stylized tree model"
+          >
+            <img
+              src="portfolio_assets/screenshots/stylized_tree.jpg"
+              alt="Tall stylized tree with colorful low-poly foliage and detailed bark"
+              loading="lazy"
+            >
+          </button>
+
+          <div class="project-copy">
+            <div class="project-type">Stylized modeling · Blender</div>
+            <h3>Stylized tree</h3>
+            <p>
+              A colorful environment asset combining an expressive silhouette,
+              bark details and low-poly foliage for a distinct stylized look.
+            </p>
+            <div class="tags">
+              <span>Stylized</span>
+              <span>Low-poly</span>
+              <span>Environment</span>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="code" class="section">
@@ -995,8 +1126,8 @@
         <article class="service">
           <h3>3D modeling</h3>
           <p>
-            Stylized props and equipment
-            made in Blender.
+            Custom models in stud-style, low, mid and high poly,
+            with textures and materials.
           </p>
         </article>
       </div>
